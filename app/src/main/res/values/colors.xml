@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Original colours -->
+    <!--
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    -->
+
+    <!-- New colours -->
+    <color name="colorPrimary">#1565c0</color>
+    <color name="colorPrimaryDark">#003c8f</color>
+    <color name="colorAccent">#5e92f3</color>
+
+    <color name="text_darkGrey">#727273</color>
+    <color name="colorError">#fff44336</color>
+
+
+    <!-- Hand picked secondary colours -->
+    <!--
+    <color name="colorSecondary">#37474f</color>
+    <color name="colorSecondaryDark">#102027</color>
+    <color name="colorSecondaryLight">#62727b</color>
+    -->
+
+    <!-- Complementary colour set for primary -->
+    <!--
+    <color name="colorSecondary">#c07015</color>
+    <color name="colorSecondaryDark">#8a4400</color>
+    <color name="colorSecondaryLight">#f79f47</color>
+    -->
+
+    <!-- Analogous colour set 1 for primary -->
+    <!--
+    <color name="colorSecondary">#15bac0</color>
+    <color name="colorSecondaryDark">#008990</color>
+    <color name="colorSecondaryLight">#64edf3</color>
+    -->
+
+    <!-- Analogous colour set 2 for primary -->
+    <!--
+    <color name="colorSecondary">#1b15c0</color>
+    <color name="colorSecondaryDark">#00008e</color>
+    <color name="colorSecondaryLight">#6644f4</color>
+    -->
+
+    <!-- Triadic colour set 1 for primary -->
+    <!--
+    <color name="colorSecondary">#7015c0</color>
+    <color name="colorSecondaryDark">#39008e</color>
+    <color name="colorSecondaryLight">#a54cf4</color>
+    -->
+
+    <!-- Triadic colour set 2 for primary -->
+    <!--
+    <color name="colorSecondary">#c01565</color>
+    <color name="colorSecondaryDark">#8a003b</color>
+    <color name="colorSecondaryLight">#f75592</color>
+    -->
+</resources>
