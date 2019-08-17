@@ -67,6 +67,7 @@ public class ListActivity extends AppCompatActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
+//        Log.d("CustomMessage","onPrepareOptionsMenu()");
         MenuItem insertMenu = menu.findItem(R.id.insert_menu);
 
         if (FirebaseUtil.isAdmin == true) {
@@ -80,7 +81,6 @@ public class ListActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch (item.getItemId()) {
             case R.id.insert_menu:
                 Intent intent = new Intent(this, com.example.travelmantics_dev.DealActivity.class);
@@ -114,49 +114,41 @@ public class ListActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        Log.d("CustomMessage","onResume();");
-        Log.d("CustomMessage", "snackbarMessage is: " + snackbarMessage);
-
+//        Log.d("CustomMessage","onResume();");
+//        Log.d("CustomMessage", "snackbarMessage is: " + snackbarMessage);
 
 //        ProgressBar myProgressBar;
 //        myProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 //        myProgressBar.setVisibility(View.VISIBLE);
 
-        //Snackbar attempt for delete deal
-        //Get the transferred data from source activity.
+//        Snackbar attempt for delete deal
+//        Get the transferred data from source activity.
+//        Intent intent = getIntent();
+//        Log.d("CustomMessage", "Before Intent() - snackbarMessage is: " + snackbarMessage);
+//        snackbarMessage = intent.getStringExtra("snackbarMessage");
+//        Log.d("CustomMessage", "after Intent() - snackbarMessage is: " + snackbarMessage);
 
-        Intent intent = getIntent();
-        Log.d("CustomMessage", "Before Intent() - snackbarMessage is: " + snackbarMessage);
-        snackbarMessage = intent.getStringExtra("snackbarMessage");
-        Log.d("CustomMessage", "after Intent() - snackbarMessage is: " + snackbarMessage);
         if(snackbarMessage == null) {
-            Log.d("CustomMessage","if(snackbarMessage == null) tested true");
-            Log.d("CustomMessage","snackbarMessage set to empty");
+//            Log.d("CustomMessage","if(snackbarMessage == null) tested true");
+//            Log.d("CustomMessage","snackbarMessage set to empty");
             snackbarMessage = "";
-
         }
 
-
-
         if (snackbarMessage.length() != 0) {
-            Log.d("CustomMessage", "if() - snackbarMessage is: " + snackbarMessage);
+//            Log.d("CustomMessage", "if() - snackbarMessage is: " + snackbarMessage);
             if(snackbarMessage.length() != 0) {
-                Log.d("CustomMessage","(snackbarMessage.length() != 0) tested true");
+//                Log.d("CustomMessage","(snackbarMessage.length() != 0) tested true");
             }
-
 
             //Toast.makeText(this,"snackBar: " + snackbarMessage, Toast.LENGTH_LONG).show();
 
-//            View parentLayout = (View) findViewById(android.R.id.content);
-
             View parentLayout = (View) findViewById(android.R.id.content);
             Snackbar mySnackbar = ThemedSnackbar.make(parentLayout, snackbarMessage, Snackbar.LENGTH_LONG).setDuration(4000);
-            Log.d("CustomMessage", "snackbarMessage before show() is: " + snackbarMessage);
+//            Log.d("CustomMessage", "snackbarMessage before show() is: " + snackbarMessage);
             mySnackbar.show();
             snackbarMessage = "";
             //snackbarMessage = null;
         }
-
 
         FirebaseUtil.openFbReference("traveldeals", this);
         RecyclerView rvDeals = (RecyclerView) findViewById(R.id.rv_deals);

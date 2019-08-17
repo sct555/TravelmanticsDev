@@ -32,6 +32,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 public class DealActivity extends AppCompatActivity {
@@ -47,7 +49,6 @@ public class DealActivity extends AppCompatActivity {
     EditText textCurrency;
     TravelDeal deal;
     ImageView imageView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -191,7 +192,6 @@ public class DealActivity extends AppCompatActivity {
     }
 
     private void saveDeal() {
-
         deal.setTitle(txtTitle.getText().toString());
         deal.setDescription(txtDescription.getText().toString());
         deal.setPrice(txtPrice.getText().toString());
@@ -207,7 +207,6 @@ public class DealActivity extends AppCompatActivity {
 
     //Original deleteDeal()
     private void deleteDeal() {
-
         if (deal.getId() == null) {
             snackbarMessage = "Please save a deal before deleting it";
             return;
@@ -237,7 +236,7 @@ public class DealActivity extends AppCompatActivity {
     //snackBar backToList
     private void backToList() {
         Intent intent = new Intent(this, ListActivity.class);
-        intent.putExtra("snackbarMessage",DealActivity.snackbarMessage);
+//        intent.putExtra("snackbarMessage",DealActivity.snackbarMessage);
         startActivity(intent);
     }
 
@@ -269,6 +268,9 @@ public class DealActivity extends AppCompatActivity {
             int width = Resources.getSystem().getDisplayMetrics().widthPixels;
             Picasso.get()
                     .load(url)
+                    .networkPolicy(NetworkPolicy.NO_CACHE)
+                    .memoryPolicy(MemoryPolicy.NO_CACHE)
+                    .memoryPolicy(MemoryPolicy.NO_STORE)
                     .resize(width, width*2/3)
                     .centerCrop()
                     .into(imageView);

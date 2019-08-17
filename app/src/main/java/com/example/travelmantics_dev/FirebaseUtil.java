@@ -39,8 +39,6 @@ public class FirebaseUtil {
     public static String userUid;
 
     public static void openFbReference(String ref, final ListActivity callerActivity) {
-        Log.d("CustomMessage","openFbReference()");
-
         if(firebaseUtil == null) {
             firebaseUtil = new FirebaseUtil();
             mFirebaseDatabase = FirebaseDatabase.getInstance();
@@ -53,17 +51,13 @@ public class FirebaseUtil {
                     if (firebaseAuth.getCurrentUser() == null){
                         FirebaseUtil.signIn();
                         ListActivity.snackbarMessage = "";
-                        Log.d("CustomMessage","ListActivity.snackbarMessage set to empty if()");
-                        com.example.travelmantics_dev.DealActivity.snackbarMessage = "";
-                        Log.d("CustomMessage","DealActivity.snackbarMessage set to empty if()");
+                        DealActivity.snackbarMessage = "";
                     }
                     else {
                         String userId = firebaseAuth.getUid();
                         checkAdmin(userId);
                         ListActivity.snackbarMessage = "";
-                        Log.d("CustomMessage","ListActivity.snackbarMessage set to empty else()");
-                        com.example.travelmantics_dev.DealActivity.snackbarMessage = "";
-                        Log.d("CustomMessage","DealActivity.snackbarMessage set to empty else()");
+                        DealActivity.snackbarMessage = "";
                     }
 //****
                     mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -72,18 +66,14 @@ public class FirebaseUtil {
                         userDisplayName = mFirebaseUser.getDisplayName();
                         userUid = mFirebaseUser.getUid();
                     }
-
                     Log.d("CustomMessage","FirebaseUtil.openFbReference - userDisplayName: " + userDisplayName);
 //****
-
-
                 }
             };
             connectStorage();
         }
         mDeals = new ArrayList<TravelDeal>();
         mDatabaseReference = mFirebaseDatabase.getReference().child(ref);
-
     }
 
     private static void signIn() {
@@ -115,7 +105,6 @@ public class FirebaseUtil {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 FirebaseUtil.isAdmin = true;
-                Log.d("CustomMessage", "checkAdmin onChildAdded - FirebaseUtil.isAdmin is: " +FirebaseUtil.isAdmin);
                 caller.showMenu();
             }
 

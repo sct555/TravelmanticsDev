@@ -120,6 +120,7 @@ public class DealAdapter extends RecyclerView.Adapter<DealAdapter.DealViewHolder
 
             showImage(deal.getImageUrl());
 
+            //uncomment this one
             Log.d("CustomMessage","--------------------------------------------------------------------------------");
             Log.d("CustomMessage","start bind()");
             Log.d("CustomMessage","deals.get(getAdapterPosition()) : " + deals.get(getAdapterPosition()));
@@ -128,6 +129,7 @@ public class DealAdapter extends RecyclerView.Adapter<DealAdapter.DealViewHolder
             Log.d("CustomMessage","deal.getPrice() returns: " + deal.getPrice());
             Log.d("CustomMessage","showImage called with deal.getImageUrl(): " + deal.getImageUrl());
             Log.d("CustomMessage","associated name deal.getImageName(): " + deal.getImageName());
+
         }
 
         @Override
@@ -146,14 +148,17 @@ public class DealAdapter extends RecyclerView.Adapter<DealAdapter.DealViewHolder
                         .load(url)
                         .networkPolicy(NetworkPolicy.NO_CACHE)
                         .memoryPolicy(MemoryPolicy.NO_CACHE)
-                        .memoryPolicy(MemoryPolicy.NO_STORE)                        .resize(210, 210)
+                        .memoryPolicy(MemoryPolicy.NO_STORE)
+                        .resize(210, 210)
                         .centerCrop()
                         .placeholder(R.mipmap.travelmantics_launcher)
                         .into(imageDeal);
             }
+/*
             else{
                 imageDeal.setImageDrawable(null);
             }
+*/
         }
     }
 }
